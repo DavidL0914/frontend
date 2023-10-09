@@ -13,15 +13,43 @@ courses: { csse: {week: 1}, csp: {week: 1, categories: [4.A]}, csa: {week: 0} }
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>San Diego Weather</title>
+    <style>
 
-<style>
+body {
+  width: 100%; 
+  height:100%;
+  margin:0em 0%;
+  background-color:#8ec1da;
+  background-image: url("https://static.vecteezy.com/system/resources/previews/002/968/352/original/panorama-sky-with-cloud-on-a-sunny-day-free-photo.jpg");
+  background-position: center bottom;
+  animation: animatedBackground 215s linear infinite;
+  -webkit-animation: animatedBackground 215 s linear infinite;
 
-</style>
+}
+@keyframes animatedBackground {
+  from { background-position: 0 100%; }
+  to { background-position: 100% 100%; }
+}
+@-webkit-keyframes  animatedBackground {
+  from { background-position: 0 100%; }
+  to { background-position: 100% 100%; }
+}
+
+#content {
+  position:fixed;
+  top:4vw;
+  height:1em;
+  width:100vw;
+  color:white;
+  text-align: center;
+  font-size: 3.5vw;
+}
+
+    </style>
 </head>
-
 <body>
-    <div class="weather-container">
-        <h1>San Diego Weather</h1>
+<div id="content">Partly Cloudy</div>
+    <div class="weather-container"> 
         <div class="weather-info">
             <p><strong>Temperature:</strong> <span id="temperature"></span>°C</p>
             <p><strong>Humidity:</strong> <span id="humidity"></span>%</p>
@@ -34,7 +62,7 @@ courses: { csse: {week: 1}, csp: {week: 1, categories: [4.A]}, csa: {week: 0} }
         // JavaScript code to fetch and display weather data
         async function fetchWeather() {
             try {
-                const response = await fetch('https://api.weatherapi.com/v1/current.json?key=YOUR_API_KEY&q=San%20Diego');
+                const response = await fetch('https://api.weatherapi.com/v1/current.json?key=03557ba66442468e94e161533230910&q=San%20Diego');
                 const data = await response.json();
                 const temperatureElement = document.getElementById('temperature');
                 const humidityElement = document.getElementById('humidity');
