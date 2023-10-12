@@ -80,6 +80,23 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
+.get-weather {
+  position: fixed;
+  font-family: "Marker Felt", fantasy;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(38, 152, 255, 0.5);
+  border: none;
+  width: 10%;
+  height: 12%;
+  border-radius: 10px;
+}
+
+.get-weather:hover {
+    background-color: rgba(82, 169, 255, 0.5)
+}
+
 /* Add some basic styling to the navigation bar */
 ul.navbar {
     list-style-type: none;
@@ -113,17 +130,20 @@ ul.navbar li a:hover {
 </head>
 
 <body>
-
-
 <ul class="navbar">
     <li><a href="#home">Weather</a></li>
     <li><a href="#about">Calendar</a></li>
     <li><a href="#services">To-do List</a></li>
     <li><a href="#contact">Logout</a></li>
 </ul>
-
+<!--
+<div>
+    <label for="userInput">Enter City: </label>
+    <input type="text" id="userInput">
+    <button onclick="displayInput()">Submit</button>
+</div>
 <div id="content">Partly Cloudy</div>
-
+-->
   <div class="transparent-box1">
     <p><strong>Temperature:</strong> <span id="temperature"></span>°C</p>
   </div>
@@ -136,20 +156,30 @@ ul.navbar li a:hover {
     <p><strong>Time:</strong> <span id="time"></span></p>
             <p><strong>Day:</strong> <span id="day"></span></p>
   </div>
-
-
+  <div>
+    <button class="get-weather" onclick="fetchWeather()">Get Weather</button>
+  </div>
 
 <script>
         // JavaScript code to fetch and display weather data
+        async function displayInput() {
+            var userInput = document.getElementById("userInput").value;
+            console.log(userInput)
+            var temp = userInput.innerHTML;
+            console.log(typeof temp)
+            console.log(temp)
+            // var city = temp.replace(" ", "%20")
+        }
+        displayInput();
         async function fetchWeather() {
             try {
-                const response = await fetch('https://api.weatherapi.com/v1/current.json?key=03557ba66442468e94e161533230910&q=San%20Diego');
+                var link
+                const response = await fetch('https://api.weatherapi.com/v1/current.json?key=03557ba66442468e94e161533230910&q=san%20diego');
                 const data = await response.json();
                 const temperatureElement = document.getElementById('temperature');
                 const humidityElement = document.getElementById('humidity');
                 const timeElement = document.getElementById('time');
                 const dayElement = document.getElementById('day');
-
                 temperatureElement.textContent = data.current.temp_c;
                 humidityElement.textContent = data.current.humidity;
                 const currentTime = new Date();
@@ -159,7 +189,6 @@ ul.navbar li a:hover {
                 console.error('Error fetching weather data:', error);
             }
         }
-
         fetchWeather();
 </script>
 </body>
