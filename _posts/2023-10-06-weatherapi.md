@@ -46,6 +46,13 @@ body {
   font-size: 3.5vw;
 }
 
+.title {
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /* Styles for the transparent gray box */
 .transparent-box1 {
   position: fixed;
@@ -82,7 +89,6 @@ body {
 
 .get-weather {
   position: fixed;
-  font-family: "Marker Felt", fantasy;
   top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -144,6 +150,9 @@ ul.navbar li a:hover {
 </div>
 <div id="content">Partly Cloudy</div>
 -->
+  <div class="title">
+    <h1 id="title"></h1>
+  </div>
   <div class="transparent-box1">
     <p><strong>Temperature:</strong> <span id="temperature"></span>°C</p>
   </div>
@@ -162,15 +171,15 @@ ul.navbar li a:hover {
 
 <script>
         // JavaScript code to fetch and display weather data
-        async function displayInput() {
-            var userInput = document.getElementById("userInput").value;
-            console.log(userInput)
-            var temp = userInput.innerHTML;
-            console.log(typeof temp)
-            console.log(temp)
+        //async function displayInput() {
+            //var userInput = document.getElementById("userInput").value;
+            //console.log(userInput)
+            //var temp = userInput.innerHTML;
+            //console.log(typeof temp)
+            //console.log(temp)
             // var city = temp.replace(" ", "%20")
-        }
-        displayInput();
+        //}
+        //displayInput();
         async function fetchWeather() {
             try {
                 var link
@@ -180,8 +189,13 @@ ul.navbar li a:hover {
                 const humidityElement = document.getElementById('humidity');
                 const timeElement = document.getElementById('time');
                 const dayElement = document.getElementById('day');
+                const weathertypeElement = document.getElementById('title')
                 temperatureElement.textContent = data.current.temp_c;
                 humidityElement.textContent = data.current.humidity;
+                weathertypeElement.textContent = data.current.condition.text;
+                console.log(data)
+                console.log(data.current)
+                console.log(data.current.condition.text)
                 const currentTime = new Date();
                 timeElement.textContent = currentTime.toLocaleTimeString();
                 dayElement.textContent = currentTime.toLocaleDateString();
