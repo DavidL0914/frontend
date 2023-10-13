@@ -148,7 +148,7 @@ ul.navbar li a:hover {
 <div>
     <label for="userInput">Enter City: </label>
     <input type="text" id="userInput">
-    <button onclick="displayInput()">Submit</button>
+    <button onclick="displayInput()">Submit</ >
 </div>
 <div id="content">Partly Cloudy</div>
 -->
@@ -166,9 +166,6 @@ ul.navbar li a:hover {
   <div class="transparent-box3">
     <p><strong>Time:</strong> <span id="time"></span></p>
             <p><strong>Day:</strong> <span id="day"></span></p>
-  </div>
-  <div>
-    <button class="get-weather" onclick="fetchWeather()">Get Weather</button>
   </div>
 
 <script>
