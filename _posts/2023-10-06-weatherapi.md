@@ -25,11 +25,11 @@ body {
   background-position: center bottom;
   animation: animatedBackground 500s linear infinite;
   -webkit-animation: animatedBackground 500 s linear infinite;
-
+ 
 }
 @keyframes animatedBackground {
   from { background-position: 0 100%; }
-  to { background-position: 100% 100%; }
+  to { background-p osition: 100% 100%; }
 }
 @-webkit-keyframes  animatedBackground {
   from { background-position: 0 100%; }
@@ -136,6 +136,8 @@ ul.navbar li a:hover {
 </head>
 
 <body>
+
+
 <ul class="navbar">
     <li><a href="#home">Weather</a></li>
     <li><a href="#about">Calendar</a></li>
@@ -204,6 +206,11 @@ ul.navbar li a:hover {
             }
         }
         fetchWeather();
+
+    setInterval(function () {
+    fetchWeather()
+}, 1000);
+
 </script>
 </body>
 </html>
