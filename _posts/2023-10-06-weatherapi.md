@@ -144,7 +144,7 @@ ul.navbar li a:hover {
     <li><a href="#services">To-do List</a></li>
     <li><a href="#contact">Logout</a></li>
 </ul>
-<!--
+<!-- Test for user inputting city!
 <div>
     <label for="userInput">Enter City: </label>
     <input type="text" id="userInput">
