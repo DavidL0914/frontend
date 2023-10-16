@@ -12,7 +12,7 @@ courses: { csse: {week: 1}, csp: {week: 1, categories: [4.A]}, csa: {week: 0} }
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>San Diego Weather</title>
+    <title>Weather</title>
 
 <style>
 
@@ -49,6 +49,13 @@ body {
 .title {
   position: fixed;
   top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.contain {
+  position: fixed;
+  top: 15%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -132,6 +139,10 @@ ul.navbar li a:hover {
     background-color: #555;
 }
 
+.big {
+  font-size: 3vw;
+}
+
 </style>
 </head>
 
@@ -152,6 +163,9 @@ ul.navbar li a:hover {
 </div>
 <div id="content">Partly Cloudy</div>
 -->
+  <div class="contain">
+    <h1 class = "big" id="city"></h1>
+  </div>
   <div class="title">
     <h1 id="title"></h1>
   </div>
@@ -182,19 +196,18 @@ ul.navbar li a:hover {
         async function fetchWeather() {
             try {
                 var link
-                const response = await fetch('https://api.weatherapi.com/v1/current.json?key=03557ba66442468e94e161533230910&q=new%20york');
+                const response = await fetch('https://api.weatherapi.com/v1/current.json?key=03557ba66442468e94e161533230910&q=san%20diego');
                 const data = await response.json();
                 const temperatureElement = document.getElementById('temperature');
                 const humidityElement = document.getElementById('humidity');
                 const timeElement = document.getElementById('time');
                 const dayElement = document.getElementById('day');
                 const weathertypeElement = document.getElementById('title')
+                const citynameElement = document.getElementById('city')
                 temperatureElement.textContent = data.current.temp_c;
                 humidityElement.textContent = data.current.humidity;
                 weathertypeElement.textContent = data.current.condition.text;
-                console.log(data)
-                console.log(data.current)
-                console.log(data.current.condition.text)
+                citynameElement.textContent = data.location.name;
                 const currentTime = new Date();
                 timeElement.textContent = currentTime.toLocaleTimeString();
                 dayElement.textContent = currentTime.toLocaleDateString();
