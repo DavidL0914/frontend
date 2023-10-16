@@ -144,7 +144,7 @@ ul.navbar li a:hover {
     <li><a href="#services">To-do List</a></li>
     <li><a href="#contact">Logout</a></li>
 </ul>
-<!--
+<!-- Test for user inputting city!
 <div>
     <label for="userInput">Enter City: </label>
     <input type="text" id="userInput">
@@ -182,7 +182,7 @@ ul.navbar li a:hover {
         async function fetchWeather() {
             try {
                 var link
-                const response = await fetch('https://api.weatherapi.com/v1/current.json?key=03557ba66442468e94e161533230910&q=san%20diego');
+                const response = await fetch('https://api.weatherapi.com/v1/current.json?key=03557ba66442468e94e161533230910&q=new%20york');
                 const data = await response.json();
                 const temperatureElement = document.getElementById('temperature');
                 const humidityElement = document.getElementById('humidity');
