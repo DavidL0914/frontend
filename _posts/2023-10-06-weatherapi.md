@@ -96,7 +96,7 @@ body {
 
 .get-weather {
   position: fixed;
-  top: 70%;
+  top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: rgba(38, 152, 255, 0.5);
@@ -143,6 +143,20 @@ ul.navbar li a:hover {
   font-size: 3vw;
 }
 
+.enter-city {
+  position: fixed;
+  top: 65%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+}
+
+.input-box {
+  position: fixed;
+  top: 65%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+}
+
 </style>
 </head>
 
@@ -156,9 +170,9 @@ ul.navbar li a:hover {
 </ul>
 
 <div>
-    <label for="userInput">Enter City: </label>
-    <input type="text" id="userInput">
-    <button onclick="updateWeather()">Submit</button>
+    <label class="enter-city" for="userInput">Enter a City: </label>
+    <input class="input-box" type="text" id="userInput">
+    <button class="get-weather" onclick="updateWeather()">Get Weather</button>
 </div>
 
 <div class="contain">
