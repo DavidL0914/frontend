@@ -148,77 +148,73 @@ ul.navbar li a:hover {
 
 <body>
 
-
 <ul class="navbar">
     <li><a href="#home">Weather</a></li>
     <li><a href="#about">Calendar</a></li>
     <li><a href="#services">To-do List</a></li>
     <li><a href="#contact">Logout</a></li>
 </ul>
-<!-- Test for user inputting city!
+
 <div>
     <label for="userInput">Enter City: </label>
     <input type="text" id="userInput">
-    <button onclick="displayInput()">Submit</ >
+    <button onclick="updateWeather()">Submit</button>
 </div>
-<div id="content">Partly Cloudy</div>
--->
-  <div class="contain">
-    <h1 class = "big" id="city"></h1>
-  </div>
-  <div class="title">
+
+<div class="contain">
+    <h1 class="big" id="city"></h1>
+</div>
+<div class="title">
     <h1 id="title"></h1>
-  </div>
-  <div class="transparent-box1">
+</div>
+<div class="transparent-box1">
     <p><strong>Temperature:</strong> <span id="temperature"></span>°C</p>
-  </div>
+</div>
 
-  <div class="transparent-box2">
+<div class="transparent-box2">
     <p><strong>Humidity:</strong> <span id="humidity"></span>%</p>
-  </div>
+</div>
 
-  <div class="transparent-box3">
+<div class="transparent-box3">
     <p><strong>Time:</strong> <span id="time"></span></p>
-            <p><strong>Day:</strong> <span id="day"></span></p>
-  </div>
+    <p><strong>Day:</strong> <span id="day"></span></p>
+</div>
 
 <script>
-        // JavaScript code to fetch and display weather data
-        //async function displayInput() {
-            //var userInput = document.getElementById("userInput").value;
-            //console.log(userInput)
-            //var temp = userInput.innerHTML;
-            //console.log(typeof temp)
-            //console.log(temp)
-            // var city = temp.replace(" ", "%20")
-        //}
-        //displayInput();
-        async function fetchWeather() {
-            try {
-                var link
-                const response = await fetch('https://api.weatherapi.com/v1/current.json?key=03557ba66442468e94e161533230910&q=san%20diego');
-                const data = await response.json();
-                const temperatureElement = document.getElementById('temperature');
-                const humidityElement = document.getElementById('humidity');
-                const timeElement = document.getElementById('time');
-                const dayElement = document.getElementById('day');
-                const weathertypeElement = document.getElementById('title')
-                const citynameElement = document.getElementById('city')
-                temperatureElement.textContent = data.current.temp_c;
-                humidityElement.textContent = data.current.humidity;
-                weathertypeElement.textContent = data.current.condition.text;
-                citynameElement.textContent = data.location.name;
-                const currentTime = new Date();
-                timeElement.textContent = currentTime.toLocaleTimeString();
-                dayElement.textContent = currentTime.toLocaleDateString();
-            } catch (error) {
-                console.error('Error fetching weather data:', error);
-            }
-        }
-        fetchWeather();
+async function updateWeather() {
+    const userInput = document.getElementById("userInput").value;
+    // Replace spaces with "%20" to ensure proper URL formatting
+    const city = userInput.replace(/ /g, "%20");
+    const apiUrl = `https://api.weatherapi.com/v1/current.json?key=03557ba66442468e94e161533230910&q=${city}`;
 
-    setInterval(function () {
-    fetchWeather()
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+
+        const temperatureElement = document.getElementById('temperature');
+        const humidityElement = document.getElementById('humidity');
+        const timeElement = document.getElementById('time');
+        const dayElement = document.getElementById('day');
+        const weathertypeElement = document.getElementById('title');
+        const citynameElement = document.getElementById('city');
+
+        temperatureElement.textContent = data.current.temp_c;
+        humidityElement.textContent = data.current.humidity;
+        weathertypeElement.textContent = data.current.condition.text;
+        citynameElement.textContent = data.location.name;
+
+        const currentTime = new Date();
+        timeElement.textContent = currentTime.toLocaleTimeString();
+        dayElement.textContent = currentTime.toLocaleDateString();
+    } catch (error) {
+        console.error('Error fetching weather data:', error);
+    }
+}
+
+updateWeather(); // Initial call to load weather data
+
+setInterval(function () {
+    updateWeather();
 }, 1000);
 
 </script>
