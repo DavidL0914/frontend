@@ -170,9 +170,9 @@ ul.navbar li a:hover {
 </ul>
 
 <div>
-    <label class="enter-city" for="userInput">Enter a City: </label>
-    <input class="input-box" type="text" id="userInput">
-    <button class="get-weather" onclick="updateWeather()">Get Weather</button>
+    <label for="userInput">Enter a City: </label>
+    <input type="text" id="userInput">
+    <button onclick="updateWeather()">Get Weather</button>
 </div>
 
 <div class="contain">
