@@ -195,6 +195,15 @@ ul.navbar li a:hover {
 </div>
 
 <script>
+
+const weatherBackgrounds = {
+  'Clear': 'url(link_to_sunny_image)',
+  'Partly cloudy': 'url(link_to_partly_cloudy_image)',
+  'Cloudy': 'url(link_to_cloudy_image)',
+  'Rain': 'url(link_to_rainy_image)',
+  // Add more conditions and corresponding image URLs as needed
+};
+
 async function updateWeather() {
     const userInput = document.getElementById("userInput").value;
     // Replace spaces with "%20" to ensure proper URL formatting
@@ -224,6 +233,7 @@ async function updateWeather() {
         console.error('Error fetching weather data:', error);
     }
 }
+
 
 updateWeather(); // Initial call to load weather data
 
