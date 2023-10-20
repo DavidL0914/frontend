@@ -35,6 +35,7 @@ for i in range(len(datestemp)):
 
 def printweather(weather, dates):
     counter = 0
+    global temps
     temps = []
     precipitation = []
     for x in weather["hourly"]["temperature_2m"]:
@@ -58,8 +59,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    temps = temps
-    return render_template('index.html', temps=temps)
+    return render_template('index.html', temps=weather["hourly"]["temperature_2m"])
 
 if __name__ == '__main__':
     app.run(debug=True)

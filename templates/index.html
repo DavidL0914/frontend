@@ -3,6 +3,15 @@
     <title>Flask Web App</title>
 </head>
 <body>
-    <h1>Hello, {{ temps }}!</h1>
+    <h1 id="header1">{{ temps }}</h1>
 </body>
+
+<script>
+    var temperatures = document.getElementById("header1");
+    var tempvalues = temperatures.innerHTML;
+    const tempvalues = [];
+    console.log(tempvalues[]);
+    console.log("testing");
+</script>
+
 </html>
