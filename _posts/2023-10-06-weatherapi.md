@@ -15,8 +15,7 @@ courses: { csse: {week: 1}, csp: {week: 1, categories: [4.A]}, csa: {week: 0} }
     <title>Weather</title>
 
 <style>
-
-body {
+  body {
   width: 100%; 
   height:100%;
   margin:0em 0%;
@@ -156,91 +155,82 @@ ul.navbar li a:hover {
   left: 55%;
   transform: translate(-50%, -50%);
 }
-
 </style>
 </head>
 
 <body>
+    <ul class="navbar">
+        <li><a href="#home">Weather</a></li>
+        <li><a href="#about">Calendar</a></li>
+        <li><a href="#services">To-do List</a></li>
+        <li><a href="#contact">Logout</a></li>
+    </ul>
 
-<ul class="navbar">
-    <li><a href="#home">Weather</a></li>
-    <li><a href="#about">Calendar</a></li>
-    <li><a href="#services">To-do List</a></li>
-    <li><a href="#contact">Logout</a></li>
-</ul>
+  <div>
+      <label class="enter-city" for="userInput">Enter a City: </label>
+      <input class="input-box" type="text" id="userInput">
+      <button class="get-weather" onclick="startUpdatingWeather()">Get Weather</button>
+  </div>
 
-<div>
-    <label class="enter-city" for="userInput">Enter a City: </label>
-    <input class="input-box" type="text" id="userInput">
-    <button class="get-weather" onclick="updateWeather()">Get Weather</button>
-</div>
+  <div class="contain">
+      <h1 class="big" id="city"></h1>
+  </div>
+    <div class="title">
+        <h1 id="title"></h1>
+    </div>
+    <div class="transparent-box1">
+        <p><strong>Temperature:</strong> <span id="temperature"></span>°C</p>
+    </div>
 
-<div class="contain">
-    <h1 class="big" id="city"></h1>
-</div>
-<div class="title">
-    <h1 id="title"></h1>
-</div>
-<div class="transparent-box1">
-    <p><strong>Temperature:</strong> <span id="temperature"></span>°C</p>
-</div>
+  <div class="transparent-box2">
+      <p><strong>Humidity:</strong> <span id="humidity"></span>%</p>
+  </div>
 
-<div class="transparent-box2">
-    <p><strong>Humidity:</strong> <span id="humidity"></span>%</p>
-</div>
+  <div class="transparent-box3">
+      <p><strong>Time:</strong> <span id="time"></span></p>
+      <p><strong>Day:</strong> <span id="day"></span></p>
+  </div>
 
-<div class="transparent-box3">
-    <p><strong>Time:</strong> <span id="time"></span></p>
-    <p><strong>Day:</strong> <span id="day"></span></p>
-</div>
+  <script>
+        let updateInterval;
 
-<script>
+        async function updateWeather() {
+            const userInput = document.getElementById("userInput").value;
+            // Replace spaces with "%20" to ensure proper URL formatting
+            const city = userInput.replace(/ /g, "%20");
+            const apiUrl = `https://api.weatherapi.com/v1/current.json?key=03557ba66442468e94e161533230910&q=${city}`;
 
-const weatherBackgrounds = {
-  'Clear': 'url(link_to_sunny_image)',
-  'Partly cloudy': 'url(link_to_partly_cloudy_image)',
-  'Cloudy': 'url(link_to_cloudy_image)',
-  'Rain': 'url(link_to_rainy_image)',
-  // Add more conditions and corresponding image URLs as needed
-};
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
 
-async function updateWeather() {
-    const userInput = document.getElementById("userInput").value;
-    // Replace spaces with "%20" to ensure proper URL formatting
-    const city = userInput.replace(/ /g, "%20");
-    const apiUrl = `https://api.weatherapi.com/v1/current.json?key=03557ba66442468e94e161533230910&q=${city}`;
+                const temperatureElement = document.getElementById('temperature');
+                const humidityElement = document.getElementById('humidity');
+                const timeElement = document.getElementById('time');
+                const dayElement = document.getElementById('day');
+                const weathertypeElement = document.getElementById('title');
+                const citynameElement = document.getElementById('city');
 
-    try {
-        const response = await fetch(apiUrl);
-        const data = await response.json();
+                temperatureElement.textContent = data.current.temp_c;
+                humidityElement.textContent = data.current.humidity;
+                weathertypeElement.textContent = data.current.condition.text;
+                citynameElement.textContent = data.location.name;
 
-        const temperatureElement = document.getElementById('temperature');
-        const humidityElement = document.getElementById('humidity');
-        const timeElement = document.getElementById('time');
-        const dayElement = document.getElementById('day');
-        const weathertypeElement = document.getElementById('title');
-        const citynameElement = document.getElementById('city');
+                const currentTime = new Date();
+                timeElement.textContent = currentTime.toLocaleTimeString();
+                dayElement.textContent = currentTime.toLocaleDateString();
+            } catch (error) {
+                console.error('Error fetching weather data:', error);
+            }
+        }
 
-        temperatureElement.textContent = data.current.temp_c;
-        humidityElement.textContent = data.current.humidity;
-        weathertypeElement.textContent = data.current.condition.text;
-        citynameElement.textContent = data.location.name;
+        function startUpdatingWeather() {
+            // Call updateWeather immediately when the button is clicked
+            updateWeather();
 
-        const currentTime = new Date();
-        timeElement.textContent = currentTime.toLocaleTimeString();
-        dayElement.textContent = currentTime.toLocaleDateString();
-    } catch (error) {
-        console.error('Error fetching weather data:', error);
-    }
-}
-
-
-updateWeather(); // Initial call to load weather data
-
-setInterval(function () {
-    updateWeather();
-}, 1000);
-
-</script>
+            // Call updateWeather every second (1000 milliseconds) after the button is clicked
+            updateInterval = setInterval(updateWeather, 1000);
+        }  
+    </script>
 </body>
 </html>
