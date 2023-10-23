@@ -3,14 +3,16 @@
     <title>Flask Web App</title>
 </head>
 <body>
-    <h1 id="header1">Temps</h1>
+    <div>
+        <p><strong>Temperature:</strong> <span id="temperature"></span>°F</p>
+    </div>
 </body>
 
 <script>
-    var temperatures = document.getElementById("header1");
+    var temperatures = document.getElementById("temperature");
     var tempvalues = {{ temps }}
     console.log(tempvalues[9]);
-    temperatures.innerHTML = tempvalues[9]
+    temperatures.textContent = tempvalues[9]
     console.log("testing");
 </script>
 
