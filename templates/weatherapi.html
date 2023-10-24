@@ -1,0 +1,302 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+
+<style>
+
+body {
+  width: 100%; 
+  height:100%;
+  margin:0em 0%;
+  background-color:#8ec1da;
+  background-image: url("https://static.vecteezy.com/system/resources/previews/002/968/352/original/panorama-sky-with-cloud-on-a-sunny-day-free-photo.jpg");
+  background-position: center bottom;
+  animation: animatedBackground 500s linear infinite;
+  -webkit-animation: animatedBackground 500s linear infinite;
+ 
+}
+@keyframes animatedBackground {
+  from { background-position: 0 100%; }
+  to { background-position: 100% 100%; }
+}
+@-webkit-keyframes  animatedBackground {
+  from { background-position: 0 100%; }
+  to { background-position: 100% 100%; }
+}
+
+#content {
+  position:fixed;
+  top:4vw;
+  height:1em;
+  width:100vw;
+  color:white;
+  text-align: center;
+  font-size: 3.5vw;
+}
+
+.title {
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.contain {
+  position: fixed;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Styles for the transparent gray box */
+.transparent-box1 {
+  position: fixed;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box2 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box3 {
+  position: fixed;
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.get-weather {
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(38, 152, 255, 0.5);
+    border: none;
+    width: 10%;
+    height: 12%;
+    border-radius: 10px;
+}
+
+.get-weather:hover {
+    background-color: rgba(82, 169, 255, 0.5)
+}
+
+/* Add some basic styling to the navigation bar */
+ul.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    overflow: hidden;
+    opacity: 0.5;
+}
+
+/* Style the navigation bar items */
+ul.navbar li {
+    float: left;
+}
+
+/* Style the links within the navigation bar */
+ul.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color on hover */
+ul.navbar li a:hover {
+    background-color: #555;
+}
+
+.big {
+    font-size: 3vw;
+}
+
+.enter-city {
+    position: fixed;
+    top: 65%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+}
+
+.input-box {
+    position: fixed;
+    top: 65%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+}
+
+</style>
+</head>
+
+<body>
+
+<ul class="navbar">
+    <li><a href="#home">Weather</a></li>
+    <li><a href="#about">Calendar</a></li>
+    <li><a href="#services">To-do List</a></li>
+    <li><a href="#contact">Logout</a></li>
+</ul>
+
+<div class="contain">
+    <h1 class="big" id="city"></h1>
+</div>
+<div class="title">
+    <h1 id="title"></h1>
+</div>
+<div class="transparent-box1">
+    <p><strong>Temperature:</strong> <span id="temperature">{{ info.current.temperature_2m }}</span>°F</p>
+</div>
+
+<div class="transparent-box2">
+    <p><strong>Humidity:</strong> <span id="humidity">{{ info.current.relativehumidity_2m }}</span>%</p>
+</div>
+
+<div class="transparent-box3">
+    <p><strong>Time:</strong> <span id="time"></span></p>
+    <p><strong>Day:</strong> <span id="day"></span></p>
+</div>
+
+<script>
+
+const weatherBackgrounds = {
+    'Clear': 'url(link_to_sunny_image)',
+    'Partly cloudy': 'url(link_to_partly_cloudy_image)',
+    'Cloudy': 'url(link_to_cloudy_image)',
+    'Rain': 'url(link_to_rainy_image)',
+  // Add more conditions and corresponding image URLs as needed
+};
+
+
+const wmoWeatherCodes = {
+    "0": "Sunny",
+    "1": "Sunny",
+    "2": "Slightly Cloudy",
+    "3": "Partially Cloudy",
+    "4": "Cloudy",
+    "5": "Foggy",
+    "10": "Mist",
+    "11": "Patchy light drizzle",
+    "12": "Patchy light rain",
+    "13": "Patchy heavy drizzle",
+    "14": "Patchy heavy rain",
+    "20": "Patchy light snow",
+    "21": "Patchy moderate snow",
+    "22": "Patchy heavy snow",
+    "23": "Ice pellets",
+    "24": "Light snow grains",
+    "30": "Fog",
+    "31": "Freezing drizzle",
+    "32": "Heavy freezing drizzle",
+    "33": "Drizzle",
+    "34": "Freezing rain",
+    "35": "Heavy freezing rain",
+    "40": "Light rain",
+    "41": "Moderate rain",
+    "42": "Heavy rain",
+    "43": "Thunderstorm",
+    "50": "Light snow showers",
+    "51": "Moderate or heavy snow showers",
+    "52": "Slight sleet showers",
+    "53": "Moderate or heavy sleet showers",
+    "60": "Light rain showers",
+    "61": "Moderate or heavy rain showers",
+    "62": "Light snow showers",
+    "63": "Moderate or heavy snow showers",
+    "64": "Light sleet showers",
+    "65": "Moderate or heavy sleet showers",
+    "70": "Mist",
+    "71": "Fog",
+    "72": "Freezing fog",
+    "73": "Dust or sand raised by the wind",
+    "74": "Fog at a distance",
+    "75": "Haze",
+    "76": "Smoke",
+    "77": "Dust or sand in suspension in the air, visibility reduced",
+    "78": "Duststorm or sandstorm within sight but not at the station",
+    "80": "Thunderstorm with rain showers",
+    "81": "Thunderstorm with hail",
+    "82": "Thunderstorm with snow showers",
+    "83": "Thunderstorm with hail and snow showers",
+    "84": "Thunderstorm with drizzle",
+    "85": "Thunderstorm with rain",
+    "86": "Thunderstorm with snow",
+    "87": "Thunderstorm with drizzle and snow",
+    "89": "Thunderstorm with hail and rain",
+    "90": "Slight drizzle rain",
+    "91": "Moderate drizzle rain",
+    "92": "Heavy drizzle rain",
+    "93": "Light rain",
+    "94": "Moderate rain",
+    "95": "Heavy rain",
+    "96": "Drizzle rain showers",
+    "97": "Light rain showers",
+    "98": "Heavy rain showers",
+    "99": "Rain showers",
+    "100": "Storm, slight or moderate",
+};
+
+function convertWMOWeatherCodeToDescription(code) {
+    if (wmoWeatherCodes.hasOwnProperty(code)) {
+        return wmoWeatherCodes[code];
+    } else {
+        return "Unknown";
+    }
+}
+
+
+async function updateWeather() {
+    try {
+        const data = {{ info|tojson|safe }};
+        console.log("worked")
+        const temperatureElement = document.getElementById('temperature');
+        const humidityElement = document.getElementById('humidity');
+        const timeElement = document.getElementById('time');
+        const dayElement = document.getElementById('day');
+        const weathertypeElement = document.getElementById('title');
+
+        temperatureElement.textContent = data.current.temperature_2m;
+        humidityElement.textContent = data.current.relativehumidity_2m;
+        var weathercode = data.current.weathercode;
+        weathertypeElement.textContent = convertWMOWeatherCodeToDescription(weathercode);
+
+        const currentTime = new Date();
+        timeElement.textContent = currentTime.toLocaleTimeString();
+        dayElement.textContent = currentTime.toLocaleDateString();
+    } catch (error) {
+        console.error('Error fetching weather data:', error);
+    }
+}
+
+
+updateWeather(); // Initial call to load weather data
+
+setInterval(function () {
+    updateWeather();
+}, 1000);
+
+</script>
+</body>
+</html>
