@@ -24,12 +24,12 @@ body {
   background-image: url("https://static.vecteezy.com/system/resources/previews/002/968/352/original/panorama-sky-with-cloud-on-a-sunny-day-free-photo.jpg");
   background-position: center bottom;
   animation: animatedBackground 500s linear infinite;
-  -webkit-animation: animatedBackground 500 s linear infinite;
+  -webkit-animation: animatedBackground 500s linear infinite;
  
 }
 @keyframes animatedBackground {
   from { background-position: 0 100%; }
-  to { background-p osition: 100% 100%; }
+  to { background-position: 100% 100%; }
 }
 @-webkit-keyframes  animatedBackground {
   from { background-position: 0 100%; }

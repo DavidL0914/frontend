@@ -6,7 +6,7 @@
     <title>Weather</title>
 
 <style>
-
+    
 body {
   width: 100%; 
   height:100%;
@@ -189,7 +189,6 @@ const weatherBackgrounds = {
   // Add more conditions and corresponding image URLs as needed
 };
 
-
 const wmoWeatherCodes = {
     "0": "Sunny",
     "1": "Sunny",
@@ -217,6 +216,12 @@ const wmoWeatherCodes = {
     "41": "Moderate rain",
     "42": "Heavy rain",
     "43": "Thunderstorm",
+    "44": "Heavy Fog",
+    "45": "Heavy Fog",
+    "46": "Heavy Fog",
+    "47": "Heavy Fog",
+    "48": "Fog",
+    "49": "Fog",
     "50": "Light snow showers",
     "51": "Moderate or heavy snow showers",
     "52": "Slight sleet showers",
@@ -257,7 +262,6 @@ const wmoWeatherCodes = {
     "99": "Rain showers",
     "100": "Storm, slight or moderate",
 };
-
 function convertWMOWeatherCodeToDescription(code) {
     if (wmoWeatherCodes.hasOwnProperty(code)) {
         return wmoWeatherCodes[code];
