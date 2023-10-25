@@ -1,0 +1,585 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+
+<style>
+
+body {
+  width: 100%; 
+  height:100%;
+  margin:0em 0%;
+  background-color:#8ec1da;
+  background-image: url("https://static.vecteezy.com/system/resources/previews/002/968/352/original/panorama-sky-with-cloud-on-a-sunny-day-free-photo.jpg");
+  background-position: center bottom;
+  animation: animatedBackground 500s linear infinite;
+  -webkit-animation: animatedBackground 500s linear infinite;
+
+}
+@keyframes animatedBackground {
+  from { background-position: 0 100%; }
+  to { background-position: 100% 100%; }
+}
+@-webkit-keyframes  animatedBackground {
+  from { background-position: 0 100%; }
+  to { background-position: 100% 100%; }
+}
+
+#content {
+  position:fixed;
+  top:4vw;
+  height:1em;
+  width:100vw;
+  color:white;
+  text-align: center;
+  font-size: 3.5vw;
+}
+
+.title {
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.contain {
+  position: fixed;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Styles for the transparent gray box */
+.transparent-box1 {
+    position: fixed;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box2 {
+    position: fixed;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box3 {
+    position: fixed;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box4 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box5 {
+    position: fixed;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box6 {
+    position: fixed;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box7 {
+    position: fixed;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box8 {
+    position: fixed;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box9 {
+    position: fixed;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box10 {
+    position: fixed;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box11 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box12 {
+    position: fixed;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box13 {
+    position: fixed;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box14 {
+    position: fixed;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box15 {
+    position: fixed;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box16 {
+    position: fixed;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box17 {
+    position: fixed;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box18 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box19 {
+    position: fixed;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box20 {
+    position: fixed;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box21 {
+    position: fixed;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box22 {
+    position: fixed;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box23 {
+    position: fixed;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.transparent-box24 {
+    position: fixed;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(128, 128, 128, 0.5); /* Transparent gray color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.get-weather {
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(38, 152, 255, 0.5);
+    border: none;
+    width: 10%;
+    height: 12%;
+    border-radius: 10px;
+}
+
+.get-weather:hover {
+    background-color: rgba(82, 169, 255, 0.5)
+}
+
+/* Add some basic styling to the navigation bar */
+ul.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    overflow: hidden;
+    opacity: 0.5;
+}
+
+/* Style the navigation bar items */
+ul.navbar li {
+    float: left;
+}
+
+/* Style the links within the navigation bar */
+ul.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color on hover */
+ul.navbar li a:hover {
+    background-color: #555;
+}
+
+.big {
+    font-size: 3vw;
+}
+
+.enter-city {
+    position: fixed;
+    top: 65%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+}
+
+.input-box {
+    position: fixed;
+    top: 65%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+}
+
+</style>
+</head>
+
+<body>
+
+<ul class="navbar">
+    <li><a href="#home">Weather</a></li>
+    <li><a href="#about">Calendar</a></li>
+    <li><a href="#services">To-do List</a></li>
+    <li><a href="#contact">Logout</a></li>
+</ul>
+
+<div class="contain">
+    <h1 class="big" id="city"></h1>
+</div>
+<div class="title">
+    <h1 id="title"></h1>
+</div>
+<div class="transparent-box1">
+    <p><strong id="day1"></strong> <span id="day1data">{{ info.current.temperature_2m }}</span></p>
+</div>
+
+<div class="transparent-box2">
+    <p><strong id="day2"></strong> <span id="day2data">{{ info.current.relativehumidity_2m }}</span></p>
+</div>
+
+<div class="transparent-box3">
+    <p><strong id="day3"></strong> <span id="day3data">{{ info.current.temperature_2m }}</span></p>
+</div>
+
+<div class="transparent-box4">
+    <p><strong id="day4"></strong> <span id="day4data">{{ info.current.relativehumidity_2m }}</span></p>
+</div>
+
+<div class="transparent-box5">
+    <p><strong id="day5"></strong> <span id="day5data">{{ info.current.temperature_2m }}</span></p>
+</div>
+
+<div class="transparent-box6">
+    <p><strong id="day6"></strong> <span id="day6data">{{ info.current.relativehumidity_2m }}</span></p>
+</div>
+
+<div class="transparent-box7">
+    <p><strong id="day7"></strong> <span id="day7data">{{ info.current.relativehumidity_2m }}</span></p>
+</div>
+
+<div class="transparent-box8">
+    <p><strong id="day1"></strong> <span id="day8data">{{ info.current.temperature_2m }}</span></p>
+</div>
+
+<div class="transparent-box9">
+    <p><strong id="day2"></strong> <span id="day9data">{{ info.current.relativehumidity_2m }}</span></p>
+</div>
+
+<div class="transparent-box1-">
+    <p><strong id="day3"></strong> <span id="day10data">{{ info.current.temperature_2m }}</span></p>
+</div>
+
+<div class="transparent-box11">
+    <p><strong id="day4"></strong> <span id="day11data">{{ info.current.relativehumidity_2m }}</span></p>
+</div>
+
+<div class="transparent-box12">
+    <p><strong id="day5"></strong> <span id="day12data">{{ info.current.temperature_2m }}</span></p>
+</div>
+
+<div class="transparent-box13">
+    <p><strong id="day6"></strong> <span id="day13data">{{ info.current.relativehumidity_2m }}</span></p>
+</div>
+
+<div class="transparent-box14">
+    <p><strong id="day7"></strong> <span id="day14data">{{ info.current.relativehumidity_2m }}</span></p>
+</div>
+
+<div class="transparent-box15">
+    <p><strong id="day1"></strong> <span id="day15data">{{ info.current.temperature_2m }}</span></p>
+</div>
+
+<div class="transparent-box16">
+    <p><strong id="day2"></strong> <span id="day16data">{{ info.current.relativehumidity_2m }}</span></p>
+</div>
+
+<div class="transparent-box17">
+    <p><strong id="day3"></strong> <span id="day17data">{{ info.current.temperature_2m }}</span></p>
+</div>
+
+<div class="transparent-box18">
+    <p><strong id="day4"></strong> <span id="day18data">{{ info.current.relativehumidity_2m }}</span></p>
+</div>
+
+<div class="transparent-box19">
+    <p><strong id="day5"></strong> <span id="day19data">{{ info.current.temperature_2m }}</span></p>
+</div>
+
+<div class="transparent-box20">
+    <p><strong id="day6"></strong> <span id="day20data">{{ info.current.relativehumidity_2m }}</span></p>
+</div>
+
+<div class="transparent-box21">
+    <p><strong id="day7"></strong> <span id="day21data">{{ info.current.relativehumidity_2m }}</span></p>
+</div>
+
+<div class="transparent-box22">
+    <p><strong id="day1"></strong> <span id="day22data">{{ info.current.temperature_2m }}</span></p>
+</div>
+
+<div class="transparent-box23">
+    <p><strong id="day2"></strong> <span id="day23data">{{ info.current.relativehumidity_2m }}</span></p>
+</div>
+
+<div class="transparent-box24">
+    <p><strong id="day3"></strong> <span id="hour24data">{{ info.current.temperature_2m }}</span></p>
+</div>
+
+
+<div class="transparent-box3">
+    <p><strong>Time:</strong> <span id="time"></span></p>
+    <p><strong>Day:</strong> <span id="day"></span></p>
+</div>
+
+<script>
+
+const weatherBackgrounds = {
+    'Clear': 'url(link_to_sunny_image)',
+    'Partly cloudy': 'url(link_to_partly_cloudy_image)',
+    'Cloudy': 'url(link_to_cloudy_image)',
+    'Rain': 'url(link_to_rainy_image)',
+  // Add more conditions and corresponding image URLs as needed
+};
+const wmoWeatherCodes = {
+    "0": "Sunny",
+    "1": "Mostly Sunny",
+    "2": "Partly Cloudy",
+    "3": "Overcast",
+    "45": "Fog",
+    "48": "Fog",
+    "51": "Light Drizzle",
+    "53": "Moderate Drizzle",
+    "55": "Dense Drizzle",
+    "56": "Light Freezing Drizzle",
+    "57": "Intense Freezing Drizzle",
+    "61": "Light Rain",
+    "63": "Moderate Rain",
+    "65": "Heavy Rain",
+    "66": "Light Freezing Rain",
+    "67": "Heavy Freezing Rain",
+    "71": "Light Snow",
+    "73": "Moderate Snow",
+    "75": "Heavy Snow",
+    "77": "Snow Grains",
+    "80": "Light Rain Showers",
+    "81": "Moderate Rain Showers",
+    "82": "Violent Rain Showers",
+    "85": "Light Snow Showers",
+    "86": "Heavy Snow Showers",
+    "95": "Thunderstorm",
+    "96": "Thunderstorm with Light Hail",
+    "99": "Thunderstorm with Heavy Hail",
+};
+
+function convertWMOWeatherCodeToDescription(code) {
+    if (wmoWeatherCodes.hasOwnProperty(code)) {
+        return wmoWeatherCodes[code];
+    } else {
+        return "Unknown";
+    }
+}
+
+
+async function updateWeather() {
+    try {
+        const data = {{ info|tojson|safe }}
+        console.log("worked")
+        const temperatureElement = document.getElementById('temperature');
+        const humidityElement = document.getElementById('humidity');
+        const timeElement = document.getElementById('time');
+        const dayElement = document.getElementById('day');
+        const weathertypeElement = document.getElementById('title');
+
+        temperatureElement.textContent = data.current.temperature_2m;
+        humidityElement.textContent = data.current.relativehumidity_2m;
+        var weathercode = data.current.weathercode;
+        weathertypeElement.textContent = convertWMOWeatherCodeToDescription(weathercode);
+
+        const currentTime = new Date();
+        timeElement.textContent = currentTime.toLocaleTimeString();
+        dayElement.textContent = currentTime.toLocaleDateString();
+    } 
+    catch (error) {
+        console.error('Error fetching weather data:', error);
+    }
+}
+
+
+updateWeather(); // Initial call to load weather data
+
+setInterval(function () {
+    updateWeather();
+}, 1000);
+
+</script>
+</body>
+</html>
