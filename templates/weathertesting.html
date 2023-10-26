@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
-
 <style>
-
 body {
   width: 100%; 
   height:100%;
@@ -414,99 +412,99 @@ ul.navbar li a:hover {
 </div>
 
 <div class="transparent-box1">
-    <p><strong id="hour1">12 AM</strong><br><br><span id="hour1data">{{ info.hourly.temperature_2m[0] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[0] }}%</span></p>
+    <p><strong id="hour1">12 AM</strong><br><br><span id="hour1data">{{ info.hourly.temperature_2m[0] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[0] }}%</span></p>
 </div>
 
 <div class="transparent-box2">
-    <p><strong id="hour2">1 AM</strong><br><br><span id="hour2data">{{ info.hourly.temperature_2m[1] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[1] }}%</span></p>
+    <p><strong id="hour2">1 AM</strong><br><br><span id="hour2data">{{ info.hourly.temperature_2m[1] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[1] }}%</span></p>
 </div>
 
 <div class="transparent-box3">
-    <p><strong id="hour3">2 AM</strong><br><br><span id="hour3data">{{ info.hourly.temperature_2m[2] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[2] }}%</span></p>
+    <p><strong id="hour3">2 AM</strong><br><br><span id="hour3data">{{ info.hourly.temperature_2m[2] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[2] }}%</span></p>
 </div>
 
 <div class="transparent-box4">
-    <p><strong id="hour4">3 AM</strong><br><br><span id="hour4data">{{ info.hourly.temperature_2m[3] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[3] }}%</span></p>
+    <p><strong id="hour4">3 AM</strong><br><br><span id="hour4data">{{ info.hourly.temperature_2m[3] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[3] }}%</span></p>
 </div>
 
 <div class="transparent-box5">
-    <p><strong id="hour5">4 AM</strong><br><br><span id="hour5data">{{ info.hourly.temperature_2m[4] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[4] }}%</span></p>
+    <p><strong id="hour5">4 AM</strong><br><br><span id="hour5data">{{ info.hourly.temperature_2m[4] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[4] }}%</span></p>
 </div>
 
 <div class="transparent-box6">
-    <p><strong id="hour6">5 AM</strong><br><br><span id="hour6data">{{ info.hourly.temperature_2m[5] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[5] }}%</span></p>
+    <p><strong id="hour6">5 AM</strong><br><br><span id="hour6data">{{ info.hourly.temperature_2m[5] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[5] }}%</span></p>
 </div>
 
 <div class="transparent-box7">
-    <p><strong id="hour7">6 AM</strong><br><br><span id="hour7data">{{ info.hourly.temperature_2m[6] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[6] }}%</span></p>
+    <p><strong id="hour7">6 AM</strong><br><br><span id="hour7data">{{ info.hourly.temperature_2m[6] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[6] }}%</span></p>
 </div>
 
 <div class="transparent-box8">
-    <p><strong id="hour1">7 AM</strong><br><br><span id="hour8data">{{ info.hourly.temperature_2m[7] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[7] }}%</span></p>
+    <p><strong id="hour1">7 AM</strong><br><br><span id="hour8data">{{ info.hourly.temperature_2m[7] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[7] }}%</span></p>
 </div>
 
 <div class="transparent-box9">
-    <p><strong id="hour2">8 AM</strong><br><br><span id="hour9data">{{ info.hourly.temperature_2m[8] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[8] }}%</span></p>
+    <p><strong id="hour2">8 AM</strong><br><br><span id="hour9data">{{ info.hourly.temperature_2m[8] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[8] }}%</span></p>
 </div>
 
 <div class="transparent-box10">
-    <p><strong id="hour3">9 AM</strong><br><br><span id="hour10data">{{ info.hourly.temperature_2m[9] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[9] }}%</span></p>
+    <p><strong id="hour3">9 AM</strong><br><br><span id="hour10data">{{ info.hourly.temperature_2m[9] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[9] }}%</span></p>
 </div>
 
 <div class="transparent-box11">
-    <p><strong id="hour4">10 AM</strong><br><br><span id="hour11data">{{ info.hourly.temperature_2m[10] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[10] }}%</span></p>
+    <p><strong id="hour4">10 AM</strong><br><br><span id="hour11data">{{ info.hourly.temperature_2m[10] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[10] }}%</span></p>
 </div>
 
 <div class="transparent-box12">
-    <p><strong id="hour5">11 AM</strong><br><br><span id="hour12data">{{ info.hourly.temperature_2m[11] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[11] }}%</span></p>
+    <p><strong id="hour5">11 AM</strong><br><br><span id="hour12data">{{ info.hourly.temperature_2m[11] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[11] }}%</span></p>
 </div>
 
 <div class="transparent-box13">
-    <p><strong id="hour6">12 PM</strong><br><br><span id="hour13data">{{ info.hourly.temperature_2m[12] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[12] }}%</span></p>
+    <p><strong id="hour6">12 PM</strong><br><br><span id="hour13data">{{ info.hourly.temperature_2m[12] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[12] }}%</span></p>
 </div>
 
 <div class="transparent-box14">
-    <p><strong id="hour7">1 PM</strong><br><br><span id="hour14data">{{ info.hourly.temperature_2m[13] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[13] }}%</span></p>
+    <p><strong id="hour7">1 PM</strong><br><br><span id="hour14data">{{ info.hourly.temperature_2m[13] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[13] }}%</span></p>
 </div>
 
 <div class="transparent-box15">
-    <p><strong id="hour1">2 PM</strong><br><br><span id="hour15data">{{ info.hourly.temperature_2m[14] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[14] }}%</span></p>
+    <p><strong id="hour1">2 PM</strong><br><br><span id="hour15data">{{ info.hourly.temperature_2m[14] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[14] }}%</span></p>
 </div>
 
 <div class="transparent-box16">
-    <p><strong id="hour2">3 PM</strong><br><br><span id="hour16data">{{ info.hourly.temperature_2m[15] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[15] }}%</span></p>
+    <p><strong id="hour2">3 PM</strong><br><br><span id="hour16data">{{ info.hourly.temperature_2m[15] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[15] }}%</span></p>
 </div>
 
 <div class="transparent-box17">
-    <p><strong id="hour3">4 PM</strong><br><br><span id="hour17data">{{ info.hourly.temperature_2m[16] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[16] }}%</span></p>
+    <p><strong id="hour3">4 PM</strong><br><br><span id="hour17data">{{ info.hourly.temperature_2m[16] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[16] }}%</span></p>
 </div>
 
 <div class="transparent-box18">
-    <p><strong id="hour4">5 PM</strong><br><br><span id="hour18data">{{ info.hourly.temperature_2m[17] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[17] }}%</span></p>
+    <p><strong id="hour4">5 PM</strong><br><br><span id="hour18data">{{ info.hourly.temperature_2m[17] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[17] }}%</span></p>
 </div>
 
 <div class="transparent-box19">
-    <p><strong id="hour5">6 PM</strong><br><br><span id="hour19data">{{ info.hourly.temperature_2m[18] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[18] }}%</span></p>
+    <p><strong id="hour5">6 PM</strong><br><br><span id="hour19data">{{ info.hourly.temperature_2m[18] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[18] }}%</span></p>
 </div>
 
 <div class="transparent-box20">
-    <p><strong id="hour6">7 PM</strong><br><br><span id="hour20data">{{ info.hourly.temperature_2m[19] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[19] }}%</span></p>
+    <p><strong id="hour6">7 PM</strong><br><br><span id="hour20data">{{ info.hourly.temperature_2m[19] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[19] }}%</span></p>
 </div>
 
 <div class="transparent-box21">
-    <p><strong id="hour7">8 PM</strong><br><br><span id="hour21data">{{ info.hourly.temperature_2m[20] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[20] }}%</span></p>
+    <p><strong id="hour7">8 PM</strong><br><br><span id="hour21data">{{ info.hourly.temperature_2m[20] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[20] }}%</span></p>
 </div>
 
 <div class="transparent-box22">
-    <p><strong id="hour1">9 PM</strong><br><br><span id="hour22data">{{ info.hourly.temperature_2m[21] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[21] }}%</span></p>
+    <p><strong id="hour1">9 PM</strong><br><br><span id="hour22data">{{ info.hourly.temperature_2m[21] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[21] }}%</span></p>
 </div>
 
 <div class="transparent-box23">
-    <p><strong id="hour2">10 PM</strong><br><br><span id="hour23data">{{ info.hourly.temperature_2m[22] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[22] }}%</span></p>
+    <p><strong id="hour2">10 PM</strong><br><br><span id="hour23data">{{ info.hourly.temperature_2m[22] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[22] }}%</span></p>
 </div>
 
 <div class="transparent-box24">
-    <p><strong id="hour3">11 PM</strong><br><br><span id="hour24data">{{ info.hourly.temperature_2m[23] }} °C</span><br><span>{{ info.hourly.relativehumidity_2m[23] }}%</span></p>
+    <p><strong id="hour3">11 PM</strong><br><br><span id="hour24data">{{ info.hourly.temperature_2m[23] }} °F</span><br><span>{{ info.hourly.relativehumidity_2m[23] }}%</span></p>
 </div>
 
 <script>
