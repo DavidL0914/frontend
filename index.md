@@ -15,24 +15,30 @@ div#weather {
     width: 70%;
     margin-left: 1%;
     margin-top: 1%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow: hidden; 
+    position: relative; 
 }
 
 div#weather img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto; 
+    position: absolute; 
+    top: -5%; 
 }
 
 div#todo {
-    background-color: green;
     height: 45%;
     width: 26%;
     position: absolute;
     left: 72%;
     top: 1%;
+}
+
+div#todo img {
+    width: 100%;
+    height: auto; 
+    position: absolute; 
+    top: 10%; 
 }
 
 div#recipe {
@@ -51,6 +57,16 @@ div#calendar {
     top: 38%;
     min-height: 61%;
     margin-left: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+div#calendar img {
+    width: 70%;
+    height: 100%;
+    object-fit: cover;
 }
 
 div#search {
@@ -68,8 +84,12 @@ div#search {
     <div id = "weather">
       <img src="WeatherAPI.png">
     </div>
-    <div id = "todo">Todo</div>
-    <div id = "calendar">Calendar</div>
+    <div id = "todo">
+      <img src="todo.png">
+    </div>
+    <div id = "calendar">
+      <img src="calendar.png">
+    </div>
     <div id = "recipe" >Recipe of the Day</div>
     <div id = "search" >Search Bar for Recipe</div>
 </body>
