@@ -84,7 +84,7 @@ layout: nothing
     </header>
 
   <div class="app-container">
-        <div id="weather" class="app-section">  
+        <div id="weather" class="app-section">
             <img src="WeatherAPI.png" alt="Weather">
         </div>
         <div id="todo" class="app-section">
